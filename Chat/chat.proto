@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+import "google/protobuf/any.proto";
+//command to run this
+// protoc --go_out=plugins=grpc:chat chat.proto
+package chat;
+option go_package = "./;chat";
+
+message Message {
+  string body = 1;
+}
+
+service ChatService{
+  rpc SayHello(Message) returns (Message);
+}
